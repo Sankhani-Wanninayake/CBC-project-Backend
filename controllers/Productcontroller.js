@@ -2,14 +2,18 @@ import Product from "../models/product.js";
 
 export async function getProduct(req, res) {
   // Fetch all products from the database
+  try {
    const productList = await Product.find();
    res.json({
       list: productList
 
     })
-
-    
+  } catch (e) {
+    res.json({
+      message: "Error fetching products"
+    })
   }
+}
 
 export function createProduct(req,res){
 
