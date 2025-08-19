@@ -32,7 +32,7 @@ app.use(
 
   if(token !=null){
 
-    jwt.verify(token,"cbckeyforencryption2025",(error,
+    jwt.verify(token,process.env.secret,(error,
 
 decoded)=>{
   if(!error){

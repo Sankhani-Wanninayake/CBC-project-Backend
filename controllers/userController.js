@@ -2,6 +2,8 @@ import Users from '../models/user.js';
 
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv";
+dotenv.config();
 
 export function createUser(req, res) {
 
@@ -87,7 +89,7 @@ export function loginUser(req, res) {
                         isBlocked: user.isBlocked,
                         type: user.type,
                         profilepic: user.profilepic
-                    }, "cbckeyforencryption2025")
+                    }, process.env.secret,)
                     
                     
 
