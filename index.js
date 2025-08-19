@@ -4,11 +4,14 @@ import mongoose from "mongoose";
 import productRouter from "./routes/ProductRouter.js";
 import userRouter from "./routes/userRouters.js";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();// load env file
+
 
 let app = express();
 
 
-const mongoUrl = 'mongodb+srv://Admin:helloUser@cluster0.sjda7vc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoUrl = process.env.Mongo_DB_URL
 
 mongoose.connect(mongoUrl)
 

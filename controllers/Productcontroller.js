@@ -15,7 +15,7 @@ export async function getProduct(req, res) {
   }
 }
 
-export function createProduct(req,res){
+export  function createProduct(req,res){
 
   console.log(req.user)
 
