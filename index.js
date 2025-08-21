@@ -49,7 +49,6 @@ decoded)=>{
 
 app.use(express.json());
 
-app.use("/api/products",productRouter)
 app.use("/api/user",userRouter)
 
 
