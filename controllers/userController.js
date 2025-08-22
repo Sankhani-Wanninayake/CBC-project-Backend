@@ -7,26 +7,22 @@ dotenv.config();
 
 export function createUser(req, res) {
 
-    const newUserData = (req.body)
-
-     if(req.user== null){
-
-        res.json({
-            message:"You are not logged in"
-        })
-        return
-
-     }
-
-     if(req.user.type !="admin"){
-
-        res.json({
-            message:"you are not an admin"
-        })
+    const newUserData = req.body
+if (newUserData.type == null){
+    res.json({
+        message: "please login as administrator to create admin account "
+    })
+    return
+}
+    if (newUserData.type != "admin") {
+        res.json(
+            {
+                message: "you are not allowed to create user account as you are not admin"
+            })
         return
      }
 
-
+    }
 
 
     newUserData.password = bcrypt.hashSync(newUserData.password, 10)
@@ -43,7 +39,7 @@ console.log(e);
 
         })
     })
-}
+
 
 
 export function getUser(res, req) {
@@ -139,4 +135,4 @@ export function iscustomer(req, res) {
     }
 
     return true
-}
+} 
