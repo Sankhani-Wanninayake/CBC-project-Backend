@@ -13,7 +13,7 @@ export async function createOrder(req, res) {
     // take the latest product id
 
     try {
-        const latestOrder = await order.findOne().sort({ date: -1 }).limit (1)
+        const latestOrder = await order.find().sort({ date: -1 }).limit (1)
 
         let orderId
         if (latestOrder.length == 0) {
@@ -24,7 +24,7 @@ export async function createOrder(req, res) {
 
             const numberString = currntOrderId.replace('CBC', '')
 
-            const number = parseInt(numberString)
+            const number = parseInt(numberString) //convert int
 
             const newNumber = (number + 1).toString().padStart(4, '0')
             orderId = 'CBC' + newNumber;
@@ -47,3 +47,17 @@ export async function createOrder(req, res) {
     }
 }
 
+export async function getOrders(req, res) {
+    try {
+        const orderList = await order.find(
+            { email: req.user.email }
+        )
+        res.json(
+             order
+        )
+    }catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+    
