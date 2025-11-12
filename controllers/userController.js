@@ -95,7 +95,7 @@ export function loginUser(req, res) {
 
                 } else {
                     res.json({
-                        message: "User are not logged in (incorrect Password)"
+                        message: "User are not logged in or incorrect Password"
                     })
                 }
 
@@ -131,4 +131,4 @@ export function iscustomer(req, res) {
     }
 
     return true
-} 
+}  

@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 import userRouter from "./routes/userRouters.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import productRouter from "./routes/productRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 dotenv.config();// load env file
 
@@ -52,11 +51,11 @@ decoded)=>{
 app.use(express.json());
 
 app.use("/api/user",userRouter)
-app.use("/api/product",productRouter)
+
 app.use("/api/order",orderRouter)
 
 
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
-});  
+});   
