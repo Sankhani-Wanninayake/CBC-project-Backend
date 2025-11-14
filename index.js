@@ -37,13 +37,13 @@ app.use(
 decoded)=>{
   if(!error){
     console.log(decoded)
-    req.user = decoded
+    req.user = decoded // attach the decoded payload to request object
   }
 }
 
 )
   }
-  next()
+  next()// function to pass the control to next middleware
   }
    
 )
