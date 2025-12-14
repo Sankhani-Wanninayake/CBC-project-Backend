@@ -5,6 +5,7 @@ import userRouter from "./routes/userRouters.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import orderRouter from "./routes/orderRouter.js";
+import productRouter from "./routes/productRouter.js";
 dotenv.config();// load env file
 
 
@@ -53,7 +54,7 @@ app.use(express.json());
 app.use("/api/user",userRouter)
 
 app.use("/api/order",orderRouter)
-
+app.use("/api/product",productRouter)
 
 
 app.listen(3000, () => {
